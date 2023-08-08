@@ -18,9 +18,11 @@ The command interpreter is similar to the simple shell.
 $ ./console.py
 
 ## To use the interpreter in interactive mode
+
 (hbnb) command
 
 ### Example
+
 (hbnb) help
 
 _Documented commands (type help <topic>):_
@@ -30,12 +32,16 @@ _========================================_
 EOF  help  quit
 
 (hbnb) 
+
 (hbnb) 
+
 (hbnb) quit
+
 $
 
 ## To use the interpreter in non-interactive mode
 $ echo "help" | ./console.py
+
 (hbnb)
 
 _Documented commands (type help <topic>):_
@@ -43,5 +49,7 @@ _Documented commands (type help <topic>):_
 _========================================_
 
 EOF  help  quit
+
 (hbnb) 
+
 $
