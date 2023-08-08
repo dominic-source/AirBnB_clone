@@ -1,7 +1,7 @@
 # Project description
 
 > This project is the first step towards building a full web application.
-> It comprises of the models, testcases and json storage for implement a basic web application
+> It comprises of the models, testcases and json storage for implementing a basic web application
 
 # Command Interpreter description
 The command interpreter is similar to the simple shell.
@@ -10,10 +10,9 @@ The command interpreter is similar to the simple shell.
 ## Capabilities of the interpreter
 
 + It helps us to manage every object that is created in the project.
-+ Retrieve an object from a file or database.
-+ Performs operations on object
-+ It also can update attributes of an object and destroy when required
- 
++ Retrieves an object from a file or database.
++ Performs operations on object.
++ It can update attributes of an object and destroy when required.
 
 ## To Start the interpreter in interactive mode
 $ ./console.py
@@ -24,8 +23,10 @@ $ ./console.py
 ### Example
 (hbnb) help
 
-Documented commands (type help <topic>):
-========================================
+_Documented commands (type help <topic>):_
+
+_========================================_
+
 EOF  help  quit
 
 (hbnb) 
@@ -37,9 +38,10 @@ $
 $ echo "help" | ./console.py
 (hbnb)
 
-Documented commands (type help <topic>):
-========================================
+_Documented commands (type help <topic>):_
+
+_========================================_
+
 EOF  help  quit
 (hbnb) 
 $
-
