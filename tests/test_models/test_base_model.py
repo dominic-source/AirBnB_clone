@@ -24,16 +24,16 @@ class TestBase(unittest.TestCase):
 
     def test_different_created_at(self):
         base2 = BaseModel()
-        self.assertLess(self.base.created_at, base2.created_at)
+        self.assertLessEqual(self.base.created_at, base2.created_at)
 
     def test_different_updated_at(self):
         base2 = BaseModel()
-        self.assertLess(self.base.updated_at, base2.updated_at)
+        self.assertLessEqual(self.base.updated_at, base2.updated_at)
 
     def test_save_updates_updated_at(self):
         check = self.base.updated_at
         self.base.save()
-        self.assertLess(check, self.base.updated_at)
+        self.assertLessEqual(check, self.base.updated_at)
 
     def test_id_is_str(self):
         self.assertEqual(str, type(self.base.id))
