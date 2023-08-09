@@ -34,3 +34,23 @@ class TestBase(unittest.TestCase):
         check = self.base.updated_at
         self.base.save()
         self.assertLess(check, self.base.updated_at)
+
+    def test_id_is_str(self):
+        self.assertEqual(str, type(self.base.id))
+
+    def test_return_str(self):
+        self.assertIn(type(self.base).__name__, self.base.__str__())
+        self.assertIn(self.base.id, self.base.__str__())
+        self.assertIn(str(self.base.__dict__), self.base.__str__())
+
+    def test_return_str_custom_id(self):
+        self.base.id = "random123"
+        self.assertIn("random123", self.base.__str__())
+
+    def test_class_in_my_dict(self):
+        self.assertIn('__class__' , self.base.to_dict())
+
+    def test_updated_at_and_created_at_is_isoformat(self):
+        my_dict = self.base.to_dict()
+        self.assertEqual(str, type(my_dict['updated_at']))
+        self.assertEqual(str, type(my_dict['created_at']))
