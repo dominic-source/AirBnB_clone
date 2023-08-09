@@ -23,6 +23,14 @@ class TestBase(unittest.TestCase):
         self.assertNotEqual(self.base.id, base2.id)
 
     def test_different_created_at(self):
-        base1 = BaseModel()
         base2 = BaseModel()
-        self.assertLess(base1.created_at, base2.created_at)
+        self.assertLess(self.base.created_at, base2.created_at)
+
+    def test_different_updated_at(self):
+        base2 = BaseModel()
+        self.assertLess(self.base.updated_at, base2.updated_at)
+
+    def test_save_updates_updated_at(self):
+        check = self.base.updated_at
+        self.base.save()
+        self.assertLess(check, self.base.updated_at)
