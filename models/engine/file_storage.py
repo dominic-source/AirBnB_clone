@@ -35,7 +35,7 @@ class FileStorage():
 
         json_string = json.dumps(FileStorage.__objects)
 
-        with open(FileStorage.__file_path, 'a', encoding='utf-8') as file:
+        with open(FileStorage.__file_path, 'w', encoding='utf-8') as file:
             file.write(json_string)
 
     def reload(self):
