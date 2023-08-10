@@ -54,3 +54,34 @@ class TestBase(unittest.TestCase):
         my_dict = self.base.to_dict()
         self.assertEqual(str, type(my_dict['updated_at']))
         self.assertEqual(str, type(my_dict['created_at']))
+
+    def test_to_dict_type(self):
+        blake = BaseModel()
+        self.assertTrue(dict, type(blake.to_dict()))
+
+    def test_to_dict_has_correct_keys(self):
+        blake = BaseModel()
+        self.assertIn("id", blake.to_dict())
+        self.assertIn("created_at", blake.to_dict())
+        self.assertIn("updated_at", blake.to_dict())
+        self.assertIn("__class__", blake.to_dict())
+
+    def test_to_dict_has_new_attributes(self):
+        blake = BaseModel()
+        blake.name = "Ohafia"
+        blake.my_number = 20493
+        self.assertIn("name", blake.to_dict())
+        self.assertIn("my_number", blake.to_dict())
+
+    def test_args_unused(self):
+        blake = BaseModel(None)
+        self.assertNotIn(None, blake.__dict__.values())
+
+    def test_instantiation_with_kwargs(self):
+        tm = datetime.now()
+        tm_iso = tm.isoformat()
+        bm = BaseModel(id="WhoAmI", created_at=tm_iso, updated_at=tm_iso)
+        self.assertEqual(bm.id, "WhoAmI")
+        self.assertEqual(bm.created_at, tm)
+        self.assertEqual(bm.updated_at, tm)
+
