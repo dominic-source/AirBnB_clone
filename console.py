@@ -41,17 +41,17 @@ class HBNBCommand(cmd.Cmd):
             newModel.save()
             print(newModel.id)
 
-    def do_show(self, newModel=None, mid=None):
+    def do_show(self, *args):
         """Print the string representation of and instance"""
 
-        if newModel is None:
+        if args[0] is None:
             print('** class name missing **')
-        elif newModel not in HBNBCommand.list_of_models:
+        elif args[1] not in HBNBCommand.list_of_models:
             print("** class doesn't exist **")
-        elif mid is None:
+        elif args[1] is None:
             print("** instance id missing **")
         else:
-            modelid = newModel + '.' + mid
+            modelid = args[0] + '.' + args[1]
             if modelid not in storage.all():
                 print("** no instance found **")
             else:
