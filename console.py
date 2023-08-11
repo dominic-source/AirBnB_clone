@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, newModel):
         """Creates a new instance of a Model and saves it"""
 
-        newModel = newModel.split()
+        newModel = self.splitmodify(newModel)
         if len(newModel) == 0:
             print('** class name missing **')
         elif newModel[0] not in HBNBCommand.list_of_models:
@@ -46,7 +46,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         """Print the string representation of and instance"""
 
-        args = args.split()
+        args = self.splitmodify(args)
         if len(args) == 0:
             print('** class name missing **')
         elif args[0] not in HBNBCommand.list_of_models:
@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, args):
         """This will destroy the class given it name and id"""
-        args = args.split()
+        args = self.splitmodify(args)
         if len(args) == 0:
             print('** class name missing **')
         elif args[0] not in HBNBCommand.list_of_models:
@@ -85,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
         instances based or not on the class name
         """
         printout = []
-        nameModel = nameModel.split()
+        nameModel = self.splitmodify(nameModel)
         if len(nameModel) == 0:
             value = storage.all()
             if len(value) > 0:
@@ -105,16 +105,35 @@ class HBNBCommand(cmd.Cmd):
         if len(printout) != 0:
             print(printout)
 
-    @staticmethod
-    def merge(args):
+    def splitmodify(self, args):
         """merge strings together"""
-
+        start = 0
+        newArray = []
+        if ("\'" not in args) and ("\"" not in args):
+            return args.split()
+        else:
+            values = args.split()
+            while (start < len(values)):
+                if values[start].startswith('\"'):
+                    for i in range(start, len(values)):
+                        if values[i].endswith('\"'):
+                            newArray.append(' '.join(values[start:i+1])[1:-1])
+                            break
+                        elif i == (len(values) - 1):
+                            if not (values[i].endswith('\"')):
+                                newArray.append(' '.join(values[start:i+1])[1:])
+                    start = i
+                elif values[start].endswith('\"'):
+                    newArray.append(values[start][:-1])
+                else:
+                    newArray.append(values[start])
+                start += 1
+        return newArray
 
     def do_update(self, args):
         """Updates an instance base on the class name and id"""
 
-        args = args.split()
-        print(args)
+        args = self.splitmodify(args)
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in HBNBCommand.list_of_models:
@@ -146,6 +165,8 @@ class HBNBCommand(cmd.Cmd):
                     store[nameModelId][args[2]] = float(args[3])
                 else:
                     pass
+            finally:
+                storage.save()
 
 
 if __name__ == '__main__':
