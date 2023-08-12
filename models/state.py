@@ -9,9 +9,10 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """The state class which has attributes
+    """
 
-    methods:
+    The state class which has attributes
+    attributes:
         __init__: the initialization method that initializes the instance
 
     """

@@ -9,9 +9,10 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """The place class which has attributes
+    """
 
-    methods:
+    The place class which has attributes
+    attributes:
         __init__: the initialization method that initializes the instance
 
     """

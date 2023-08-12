@@ -9,8 +9,9 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """The user class which has attributes
+    """
 
+    The user class which has attributes
     attributes:
         __init__: the initialization method that initializes the instance
 

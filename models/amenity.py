@@ -9,9 +9,10 @@ from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """The amenity class which has attributes
+    """
 
-    methods:
+    The amenity class which has attributes
+    attributes:
         __init__: the initialization method that initializes the instance
 
     """

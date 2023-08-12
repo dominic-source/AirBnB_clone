@@ -9,9 +9,10 @@ from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """The city class is the city of the user
+    """
 
-    methods:
+    The city class is the city of the user
+    attributes:
         __init__: the initialization method that initializes the instance
 
     """

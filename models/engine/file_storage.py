@@ -9,8 +9,9 @@ import json
 
 
 class FileStorage():
-    """The file storage class
+    """
 
+    The file storage class
     This class stores, creates, retrieves and destroys object
 
     """
@@ -25,7 +26,9 @@ class FileStorage():
 
     def new(self, obj):
         """
+
         set the a value in  __objects using <obj class name>.id as the key
+
         """
 
         mkey = type(obj).__name__ + '.' + obj.id
