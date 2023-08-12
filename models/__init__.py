@@ -1,13 +1,10 @@
 #!/usr/bin/python3
+"""
+Initialization module to initialize and reload the file storage engine
 
 """
 
-This is the Initilization module
-
-"""
-
-from .engine.file_storage import FileStorage
+from models.engine.file_storage import FileStorage
 
 storage = FileStorage()
 storage.reload()
-
