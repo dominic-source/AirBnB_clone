@@ -9,19 +9,17 @@ from the BaseModel class
 """
 
 
-class User(BaseModel):
-    """The user class which has attributes
+class City(BaseModel):
+    """The city class is the city of the user
 
     methods:
         __init__: the initialization method that initializes the instance
 
     """
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    state_id = ""
+    name = ""
 
     def __init__(self, *args, **kwargs):
-        """Initialize user class"""
+        """Initialize city class"""
         super().__init__(**kwargs)

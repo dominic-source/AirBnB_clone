@@ -3,25 +3,22 @@ from models.base_model import BaseModel
 
 """
 
-This module contains the user class of the which inherits
+This module contains the amenity class of the which inherits
 from the BaseModel class
 
 """
 
 
-class User(BaseModel):
-    """The user class which has attributes
+class Amenity(BaseModel):
+    """The amenity class which has attributes
 
     methods:
         __init__: the initialization method that initializes the instance
 
     """
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    name = ""
 
     def __init__(self, *args, **kwargs):
-        """Initialize user class"""
+        """Initialize amenity class"""
         super().__init__(**kwargs)

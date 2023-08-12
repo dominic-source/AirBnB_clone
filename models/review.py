@@ -3,25 +3,24 @@ from models.base_model import BaseModel
 
 """
 
-This module contains the user class of the which inherits
+This module contains the review class of the which inherits
 from the BaseModel class
 
 """
 
 
-class User(BaseModel):
-    """The user class which has attributes
+class Review(BaseModel):
+    """The review class which has attributes
 
     methods:
         __init__: the initialization method that initializes the instance
 
     """
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    place_id = ""
+    user_id = ""
+    text = ""
 
     def __init__(self, *args, **kwargs):
-        """Initialize user class"""
+        """Initialize review class"""
         super().__init__(**kwargs)
