@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-import uuid
-from datetime import datetime
-from models import storage
-
 """Base model class
 
 This class will be the base class for all the models that will be created
 
 """
+import uuid
+from datetime import datetime
+from models import storage
 
 
 class BaseModel:
