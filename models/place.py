@@ -30,4 +30,5 @@ class Place(BaseModel):
 
     def __init__(self, *args, **kwargs):
         """Initialize place class which is a subclass of the BaseModel"""
+
         super().__init__(**kwargs)

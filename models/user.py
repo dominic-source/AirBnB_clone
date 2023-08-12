@@ -11,7 +11,7 @@ from models.base_model import BaseModel
 class User(BaseModel):
     """The user class which has attributes
 
-    methods:
+    attributes:
         __init__: the initialization method that initializes the instance
 
     """
@@ -23,4 +23,5 @@ class User(BaseModel):
 
     def __init__(self, *args, **kwargs):
         """Initialize user class which is a subclass of the BaseModel"""
+
         super().__init__(**kwargs)

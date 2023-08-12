@@ -22,4 +22,5 @@ class Review(BaseModel):
 
     def __init__(self, *args, **kwargs):
         """Initialize review class which is a subclass of the BaseModel"""
+
         super().__init__(**kwargs)

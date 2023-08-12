@@ -20,4 +20,5 @@ class Amenity(BaseModel):
 
     def __init__(self, *args, **kwargs):
         """Initialize amenity class which is a subclass of the BaseModel"""
+
         super().__init__(**kwargs)

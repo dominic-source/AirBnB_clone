@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Base model class
-
+"""
+Base model class
 This class will be the base class for all the models that will be created
 
 """
@@ -14,6 +14,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialize the id, and instance of created_at or updated_at"""
+
         if not kwargs:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
