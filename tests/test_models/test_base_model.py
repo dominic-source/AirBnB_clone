@@ -5,6 +5,7 @@ from models.base_model import BaseModel
 import uuid
 from datetime import datetime
 
+
 class TestBase(unittest.TestCase):
     """class of functions to run unittests"""
 
@@ -48,7 +49,7 @@ class TestBase(unittest.TestCase):
         self.assertIn("random123", self.base.__str__())
 
     def test_class_in_my_dict(self):
-        self.assertIn('__class__' , self.base.to_dict())
+        self.assertIn('__class__', self.base.to_dict())
 
     def test_updated_at_and_created_at_is_isoformat(self):
         my_dict = self.base.to_dict()
@@ -84,4 +85,3 @@ class TestBase(unittest.TestCase):
         self.assertEqual(bm.id, "WhoAmI")
         self.assertEqual(bm.created_at, tm)
         self.assertEqual(bm.updated_at, tm)
-
