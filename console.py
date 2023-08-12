@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
             print(printout)
 
     def splitmodify(self, args):
-        """merge strings together"""
+        """merge strings together and return and array of strings"""
         start = 0
         newArr = []
         if ("\'" not in args) and ("\"" not in args):

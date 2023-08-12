@@ -10,7 +10,11 @@ serialization an deserialization of instances
 
 
 class FileStorage():
-    """The file storage class"""
+    """The file storage class
+
+    This class stores, creates, retrieves and destroys object
+
+    """
 
     __file_path = 'file.json'
     __objects = {}
@@ -39,7 +43,7 @@ class FileStorage():
             file1.write(json_string)
 
     def classes(self):
-        """Return the class object"""
+        """Return the class object to be use for object creation"""
 
         from models.base_model import BaseModel
         from models.user import User

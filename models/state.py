@@ -20,5 +20,5 @@ class State(BaseModel):
     name = ""
 
     def __init__(self, *args, **kwargs):
-        """Initialize state class"""
+        """Initialize state class which is a subclass of the BaseModel"""
         super().__init__(**kwargs)

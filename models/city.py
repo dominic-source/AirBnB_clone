@@ -21,5 +21,5 @@ class City(BaseModel):
     name = ""
 
     def __init__(self, *args, **kwargs):
-        """Initialize city class"""
+        """Initialize city class which is a subclass of the BaseModel"""
         super().__init__(**kwargs)

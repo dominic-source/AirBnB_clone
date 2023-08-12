@@ -30,5 +30,5 @@ class Place(BaseModel):
     amenity_ids = []
 
     def __init__(self, *args, **kwargs):
-        """Initialize place class"""
+        """Initialize place class which is a subclass of the BaseModel"""
         super().__init__(**kwargs)
