@@ -28,18 +28,29 @@ class HBNBCommand(cmd.Cmd):
         """Handle other commands that were not directly created"""
 
         task = line.split('.')
-        if task[1].endswith(')') and '(' in task[1]:
-            attr_sidx = task[1].index('(')
-            attr_eidx = task[1].index(')')
-            argument = ' '.join([task[0], task[1][attr_sidx+1:attr_eidx]])
-            command = task[1][:attr_sidx]
-            attr = "do_{}".format(command)
-            if hasattr(self, attr):
-                method_me = getattr(self, attr)
-                method_me(argument)
+        try:
+            if task[1].endswith(')') and '(' in task[1]:
+                attr_sidx = task[1].index('(')
+                attr_eidx = task[1].index(')')
+                argument = ' '.join([task[0], task[1][attr_sidx+1:attr_eidx]])
+                argument = ''.join(argument.split(','))
+                command = task[1][:attr_sidx]
+                attr = "do_{}".format(command)
+                if hasattr(self, attr):
+                    method_me = getattr(self, attr)
+                    method_me(argument)
+                elif attr == "do_count":
+                    value = storage.all()
+                    count = 0
+                    for key, evalue in value.items():
+                        if task[0] == key.split('.')[0]:
+                            count += 1
+                    print(count)
+                else:
+                    print(f"Unknown command: {command}")
             else:
-                print(f"Unknown command: {command}")
-        else:
+                print(f"Unknown command: {line}")
+        except IndexError:
             print(f"Unknown command: {line}")
 
     def do_quit(self, line):
