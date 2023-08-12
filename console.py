@@ -47,11 +47,11 @@ class HBNBCommand(cmd.Cmd):
                             count += 1
                     print(count)
                 else:
-                    print(f"Unknown command: {command}")
+                    print(f"*** Unknown syntax: {command}")
             else:
-                print(f"Unknown command: {line}")
+                print(f"*** Unknown syntax: {line}")
         except IndexError:
-            print(f"Unknown command: {line}")
+            print(f"*** Unknown syntax: {line}")
 
     def do_quit(self, line):
         """The quit command will exit the interpreter"""
