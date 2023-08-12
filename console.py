@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+
+This module focuses on creating the command interpreter
+using the cmd module
+
+"""
 import cmd
 from models.base_model import BaseModel
 from models.user import User
@@ -8,13 +14,6 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 from models.__init__ import storage
-
-"""
-
-This module focuses on creating the command interpreter
-using the cmd module
-
-"""
 
 
 class HBNBCommand(cmd.Cmd):

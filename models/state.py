@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
-
 """
 
 This module contains the state class of the which inherits
 from the BaseModel class
 
 """
+from models.base_model import BaseModel
 
 
 class State(BaseModel):

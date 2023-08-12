@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-import json
-
 """
 
 This Module contains classes an method for filestorage using
 serialization an deserialization of instances
 
 """
+import json
 
 
 class FileStorage():
