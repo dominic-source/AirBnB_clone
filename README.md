@@ -1,6 +1,6 @@
 # Project description
 
-> This project is the first step towards building a full web application.
+> The project is the first step towards building a full web application.
 > It comprises of the models, testcases and json storage for implementing a basic web application
 
 # Command Interpreter description
