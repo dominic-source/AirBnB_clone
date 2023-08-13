@@ -74,3 +74,30 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_new_with_None(self):
         with self.assertRaises(AttributeError):
             models.storage.new(None)
+
+    def test_save(self):
+        my_bm = BaseModel()
+        my_us = User()
+        my_st = State()
+        my_pl = Place()
+        my_cy = City()
+        my_am = Amenity()
+        my_rv = Review()
+        models.storage.new(my_bm)
+        models.storage.new(my_us)
+        models.storage.new(my_st)
+        models.storage.new(my_pl)
+        models.storage.new(my_cy)
+        models.storage.new(my_am)
+        models.storage.new(my_rv)
+        models.storage.save()
+        save_text = ""
+        with open("file.json", "r") as f:
+            save_text = f.read()
+            self.assertIn("BaseModel." + my_bm.id, save_text)
+            self.assertIn("User." + my_us.id, save_text)
+            self.assertIn("State." + my_st.id, save_text)
+            self.assertIn("Place." + my_pl.id, save_text)
+            self.assertIn("City." + my_cy.id, save_text)
+            self.assertIn("Amenity." + my_am.id, save_text)
+            self.assertIn("Review." + my_rv.id, save_text)
