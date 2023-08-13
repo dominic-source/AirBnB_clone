@@ -66,3 +66,11 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn(my_am, models.storage.all().values())
         self.assertIn("Review." + my_rv.id, models.storage.all().keys())
         self.assertIn(my_rv, models.storage.all().values())
+
+    def test_new_with_args(self):
+        with self.assertRaises(TypeError):
+            models.storage.new(BaseModel(), 1)
+
+    def test_new_with_None(self):
+        with self.assertRaises(AttributeError):
+            models.storage.new(None)
