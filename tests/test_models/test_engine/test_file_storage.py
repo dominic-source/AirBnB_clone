@@ -15,21 +15,23 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class TestFileStorage_instances(unittest.TestCase):
     """This class will test file storage"""
-    
+
     def test_FileStorage_instantiation_without_arg(self):
         """This method tests the file on file storage"""
         self.assertEqual(type(FileStorage()), FileStorage)
 
     def test_FileStorage_file_path_private_str(self):
         self.assertEqual(str, type(FileStorage._FileStorage__file_path))
-    
+
     def testFileStorage_objects_private_dict(self):
         self.assertEqual(dict, type(FileStorage._FileStorage__objects))
 
     def test_storage_does_initializes(self):
         self.assertEqual(type(models.storage), FileStorage)
+
 
 class TestFileStorage_methods(unittest.TestCase):
     """Unittests to test methods of the FileStorage."""
@@ -105,3 +107,29 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_save_with_arg(self):
         with self.assertRaises(TypeError):
             models.storage.save(None)
+
+    def test_reload(self):
+        my_bm = BaseModel()
+        my_us = User()
+        my_st = State()
+        my_pl = Place()
+        my_cy = City()
+        my_am = Amenity()
+        my_rv = Review()
+        models.storage.new(my_bm)
+        models.storage.new(my_us)
+        models.storage.new(my_st)
+        models.storage.new(my_pl)
+        models.storage.new(my_cy)
+        models.storage.new(my_am)
+        models.storage.new(my_rv)
+        models.storage.save()
+        models.storage.reload()
+        objs = FileStorage._FileStorage__objects
+        self.assertIn("BaseModel." + my_bm.id, objs)
+        self.assertIn("User." + my_us.id, objs)
+        self.assertIn("State." + my_st.id, objs)
+        self.assertIn("Place." + my_pl.id, objs)
+        self.assertIn("City." + my_cy.id, objs)
+        self.assertIn("Amenity." + my_am.id, objs)
+        self.assertIn("Review." + my_rv.id, objs)
