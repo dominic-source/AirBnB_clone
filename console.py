@@ -56,15 +56,17 @@ class HBNBCommand(cmd.Cmd):
                     arr = mydict.split(',')
                     id = argument.split(',')[0].split(' ')[1]
                     for i in arr:
-                       method_me = getattr(self, "do_{}".format(command))
-                       kjSplit = i.split(':')
-                       print(kjSplit[1])
-                       key = kjSplit[0].strip()[1:-1]
-                       value = kjSplit[1].strip()[1:-1]
-                       keyvalue = ' '.join([key, value])
-                       args = task[0] + ' ' + id + ' ' + keyvalue
-                       print(args)
-                       method_me(args)
+                        method_me = getattr(self, "do_{}".format(command))
+                        kjSplit = i.split(':')
+                        key = kjSplit[0].strip()
+                        value = kjSplit[1].strip()
+                        if key.startswith('\'') and key.endswith('\''):
+                            key = key[1:-1]
+                        if value.startswith('\'') and value.endswith('\''):
+                            value = value[1:-1]
+                        keyvalue = ' '.join([key, value])
+                        args = task[0] + ' ' + id + ' ' + keyvalue
+                        method_me(args)
             else:
                 print(f"*** Unknown syntax: {line}")
         except IndexError:
