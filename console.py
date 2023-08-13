@@ -33,21 +33,38 @@ class HBNBCommand(cmd.Cmd):
                 attr_sidx = task[1].index('(')
                 attr_eidx = task[1].index(')')
                 argument = ' '.join([task[0], task[1][attr_sidx+1:attr_eidx]])
-                argument = ''.join(argument.split(','))
                 command = task[1][:attr_sidx]
-                attr = "do_{}".format(command)
-                if hasattr(self, attr):
-                    method_me = getattr(self, attr)
-                    method_me(argument)
-                elif attr == "do_count":
-                    value = storage.all()
-                    count = 0
-                    for key, evalue in value.items():
-                        if task[0] == key.split('.')[0]:
-                            count += 1
-                    print(count)
-                else:
-                    print(f"*** Unknown syntax: {command}")
+                if '{' not in task[1]:
+                    argument = ''.join(argument.split(','))
+                    attr = "do_{}".format(command)
+                    if hasattr(self, attr):
+                        method_me = getattr(self, attr)
+                        method_me(argument)
+                    elif attr == "do_count":
+                        value = storage.all()
+                        count = 0
+                        for key, evalue in value.items():
+                            if task[0] == key.split('.')[0]:
+                                count += 1
+                            print(count)
+                    else:
+                        print(f"*** Unknown syntax: {command}")
+                elif '{' in task[1]:
+                    curlyStart = argument.index('{')
+                    curlyEnd = argument.index('}')
+                    mydict = argument[curlyStart+1:curlyEnd]
+                    arr = mydict.split(',')
+                    id = argument.split(',')[0].split(' ')[1]
+                    for i in arr:
+                       method_me = getattr(self, "do_{}".format(command))
+                       kjSplit = i.split(':')
+                       print(kjSplit[1])
+                       key = kjSplit[0].strip()[1:-1]
+                       value = kjSplit[1].strip()[1:-1]
+                       keyvalue = ' '.join([key, value])
+                       args = task[0] + ' ' + id + ' ' + keyvalue
+                       print(args)
+                       method_me(args)
             else:
                 print(f"*** Unknown syntax: {line}")
         except IndexError:
