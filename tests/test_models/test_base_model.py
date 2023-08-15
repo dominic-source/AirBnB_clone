@@ -120,6 +120,12 @@ class TestBase(unittest.TestCase):
         self.assertEqual(bm.created_at, tm)
         self.assertEqual(bm.updated_at, tm)
 
+    def test_update_and_create_time(self):
+        """unittest to check file created before updated"""
+        my_bm = BaseModel()
+        my_bm.save()
+        self.assertLess(my_bm.created_at, my_bm.updated_at)
+
 
 if __name__ == "__main__":
     unittest.main()
