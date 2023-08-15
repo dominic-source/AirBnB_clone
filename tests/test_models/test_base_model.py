@@ -126,6 +126,13 @@ class TestBase(unittest.TestCase):
         my_bm.save()
         self.assertLess(my_bm.created_at, my_bm.updated_at)
 
+    def test_save_updates_id_in_file(self):
+        my_bm = BaseModel()
+        my_bm.save()
+        my_bmid = "BaseModel." + my_bm.id
+        with open("file.json", "r") as f:
+            self.assertIn(my_bmid, f.read())
+
 
 if __name__ == "__main__":
     unittest.main()
