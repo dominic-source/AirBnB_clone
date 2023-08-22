@@ -8,24 +8,51 @@
 	align-items: center;
 	justify-content: space-between;
 }
+.popover {
+	display: none;
+}
+
+.popover ul, .popover {
+	list-style-type: none;
+}
+.popover h2 {
+	font-size: 16px;
+}
+
 div.locations h3, div.amenities h3 {
 	font-weight: 600;
+	margin-left: 20%;
 }
+
 div.locations h4, div.amenities h4 {
 	font-weight: 400;
 	font-size: 14px;
+	margin-left: 20%;
 }
+
+.locations:hover .popover, .amenities:hover .popover {
+	display: block;
+	background-color: #FAFAFA;
+	border: 1px #DDDDDD solid;
+	border-radius: 4px;
+	position: relative;
+	top: -15px;
+	padding-bottom: 15px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
 div.locations, div.amenities {
 	box-sizing: border-box;
 	height: 100%;
 	width: 25%;
-	padding-left: 5%;
 	line-height: 1;
 }
+
 div.amenities {
 	margin-right: 30%;
 }
-div.locations {
+div.locations{
 	border-right: 1px #DDDDDD solid;
 }
 
