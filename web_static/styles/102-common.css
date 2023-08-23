@@ -1,0 +1,57 @@
+@media only screen and (max-width: 600px) {
+body {
+	font-size: 10px;
+}
+.container {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+}
+
+@media only screen and (min-width: 600px) {
+
+body {
+	font-size: 11px;
+}
+.container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+}
+
+@media only screen and (min-width: 768px) {
+
+body {
+	font-size: 12px;
+}
+.container {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+}
+
+@media only screen and (min-width: 992px) {
+
+body {
+	font-size: 14px;
+}
+.container {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+}
+
+body {
+margin: 0px;
+	padding: 0px;
+	color: #484848;
+	font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container {
+max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+

@@ -1,0 +1,42 @@
+header {
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px #CCCCCC solid;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: flex-start;
+	align-self: center;
+}
+
+@media only screen and (max-width: 600px) {
+header {
+	height: 40px;
+	padding-bottom: 20px;
+}
+
+}
+
+@media only screen and (min-width: 600px) {
+header {
+	height: 50px;
+	padding-bottom: 20px;
+}
+}
+
+@media only screen and (min-width: 768px) {
+header {
+	height: 60px;
+	padding: 0px;
+}
+
+}
+
+@media only screen and (min-width: 992px) {
+header {
+	height: 70px;
+	padding: 0px;
+}
+
+}
+
